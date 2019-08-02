@@ -1,22 +1,22 @@
-import java.io.IOException;
+package nl.logius.digipoort.connector;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
-import javax.security.auth.callback.UnsupportedCallbackException;
 
 import org.apache.ws.security.WSPasswordCallback;
 
 public class WSS4JPasswordCallback implements CallbackHandler
 {
-	private Map<String, String> passwords = new HashMap<String, String>();
+	private Map<String, String> passwords = new HashMap<>();
 
 	/**
 	 * It attempts to get the password from the private alias/passwords map.
 	 */
 	@Override
-	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException
+	public void handle(Callback[] callbacks)
 	{
 		for (Callback callback : callbacks)
 		{

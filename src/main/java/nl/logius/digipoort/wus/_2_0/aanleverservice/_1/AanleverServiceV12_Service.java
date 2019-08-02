@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "AanleverService_V1_2", targetNamespace = "http://logius.nl/digipoort/wus/2.0/aanleverservice/1.2/", wsdlLocation = "file:/C:/development/biv-connector/src/main/resources/wsdl/Aanleverservice_WUS20v12_prod.wsdl")
+@WebServiceClient(name = "AanleverService_V1_2", targetNamespace = "http://logius.nl/digipoort/wus/2.0/aanleverservice/1.2/", wsdlLocation = "file:/your/location/example-java-biv-connector/src/main/resources/wsdl/Aanleverservice_WUS20v12_prod.wsdl")
 public class AanleverServiceV12_Service
     extends Service
 {
@@ -30,7 +30,7 @@ public class AanleverServiceV12_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/development/biv-connector/src/main/resources/wsdl/Aanleverservice_WUS20v12_prod.wsdl");
+            url = new URL("file:/your/location/example-java-biv-connector/src/main/resources/wsdl/Aanleverservice_WUS20v12_prod.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

@@ -1,3 +1,5 @@
+package nl.logius.digipoort.connector;
+
 import java.util.Map;
 import java.util.Properties;
 
