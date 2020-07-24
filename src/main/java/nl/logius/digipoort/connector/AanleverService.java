@@ -7,6 +7,8 @@ import javax.xml.ws.BindingProvider;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 
+import com.google.common.base.Strings;
+
 import nl.logius.digipoort.koppelvlakservices._1.AanleverRequest;
 import nl.logius.digipoort.koppelvlakservices._1.AanleverResponse;
 import nl.logius.digipoort.koppelvlakservices._1.BerichtInhoudType;
@@ -18,7 +20,7 @@ import nl.logius.digipoort.wus._2_0.aanleverservice._1.AanleverServiceV12_Servic
 
 public class AanleverService
 {
-	public AanleverResponse aanleveren(String fileName)
+	public AanleverResponse aanleveren(String fileName, String berichtsoort, String IdOntvanger)
 	{
 		try
 		{
@@ -34,8 +36,13 @@ public class AanleverService
 			aanleverRequest.setAanleverkenmerk("Test aanlevering");
 			BerichtInhoudType berichtInhoudType = getBerichtInhoudType(fileName);
 			aanleverRequest.setBerichtInhoud(berichtInhoudType);
-			aanleverRequest.setIdentiteitBelanghebbende(getIdentiteitType());
-			aanleverRequest.setBerichtsoort("Test_SWL");
+			aanleverRequest.setIdentiteitBelanghebbende(getIdentiteitType("12345678","kvk"));
+			aanleverRequest.setBerichtsoort(berichtsoort);
+			if(!Strings.isNullOrEmpty(IdOntvanger))
+			{
+				aanleverRequest.setIdentiteitOntvanger(getIdentiteitType(IdOntvanger, "ID-ontvanger"));
+			}
+			aanleverRequest.setAutorisatieAdres("http://geenausp.nl/");
 
 			AanleverResponse aanleveren = port.aanleveren(aanleverRequest);
 
@@ -58,10 +65,11 @@ public class AanleverService
 		return null;
 	}
 
-	private IdentiteitType getIdentiteitType()
+	private IdentiteitType getIdentiteitType(String number, String type)
 	{
 		IdentiteitType identiteitType = new IdentiteitType();
-		identiteitType.setNummer("12345678");
+		identiteitType.setNummer(number);
+		identiteitType.setType(type);
 		return identiteitType;
 	}
 

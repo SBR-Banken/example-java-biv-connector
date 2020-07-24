@@ -13,7 +13,7 @@ public class SetupMerlin
 	/*
 	Setup Merlin, for WSS4J. A key and truststore is needed for webservices security.
 	 */
-	private static final String ALIAS = "biv";
+	private static final String ALIAS = "client";
 	private static final String PASSWD = "test";
 	private static final String WSSE_JKS = "wsse.jks";
 

@@ -13,22 +13,23 @@ public class BivConnector
 {
 	public static void main(String args[])
 	{
-		System.setProperty("javax.net.ssl.trustStore", "tls.jks");
-		System.setProperty("javax.net.ssl.trustStorePassword", "pass");
-		System.setProperty("javax.net.ssl.keyStore", "tls.jks");
-		System.setProperty("javax.net.ssl.keyStorePassword", "pass");
+		System.setProperty("javax.net.ssl.trustStore", "wsse.jks");
+		System.setProperty("javax.net.ssl.trustStorePassword", "test");
+		System.setProperty("javax.net.ssl.keyStore", "wsse.jks");
+		System.setProperty("javax.net.ssl.keyStorePassword", "test");
 
 		// Example for processing a synchronous and asynchronous delivery
 		BivConnector bivConnector = new BivConnector();
-		bivConnector.xbrlFileProcessor("BT13_IJRvolledig_2018.xbrl");
-		bivConnector.xbrlFileProcessor("VB-03_bd-rpt-ihz-aangifte-2018.xbrl");
+		bivConnector.xbrlFileProcessor("frc-rpt-vt-duurzaamheidsscore.xbrl","Test_SWL", null);
+		bivConnector.xbrlFileProcessor("VB-01_bd-rpt-ihz-aangifte-2019-masked.xbrl", "Inkomstenbelasting", "00000000123456780000");
 	}
 
-	public void xbrlFileProcessor(String fileName)
+	public void xbrlFileProcessor(String fileName, String berichtsoort, String IdOntvanger)
 	{
 		// The response contains a status, depending on the configuration in BIV it will be processed (a)synchronously.
 		AanleverService aanleverService = new AanleverService();
-		AanleverResponse aanleverResponse = aanleverService.aanleveren(fileName);
+		AanleverResponse aanleverResponse = aanleverService.aanleveren(fileName,berichtsoort, IdOntvanger);
+
 		checkNotNull(aanleverResponse, "Processing xbrl file failed for fileName: " + fileName);
 
 		// The 'AanleverResponse' contains a status which you can use. if you need the latest status we advice you to call the 'StatusInformatieService'.

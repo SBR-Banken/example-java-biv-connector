@@ -1,8 +1,14 @@
 # example-java-biv-connector
 
-Voorbeeld code (Java 8) hoe je een verbinding tot stand kan brengen met de banken infrastructurele voorzieningen (BIV).
+Example code (Java 8) on how to set up a connection with the BIV.
 
-Configuration steps:
-- Create a java keystore tls.jks, password 'pass' that serves as truststore and add the certificate of bta-frcportaal.nl to this keystore
-- Create a java keystore wsse.jks, that serves as keystore and add your PKI-O certificate to this keystore. The alias of the certificate and the password for this certificate and keystore can be set in SetupMerlin.java
-- Update AanleverServiceV12_Service and StatusinformatieServiceV12_Service with the correct url's. (replace 'your/location' with the actual location on your file system)
+## Configation
+In StatusinformatieServiceV12_Service.java and AanleverServiceV12_Service.java, change the file url to the correct
+location on your file system.
+
+Create a jks keystore and add the public part of the certificate of bta-frcportaal.nl.
+Add the private part of your own certificate with alias 'client' and password 'test'.
+Save the keystore with password 'test' as 'wsse.jks' in the root folder.
+
+## Run
+Execute the main method in BivConnector

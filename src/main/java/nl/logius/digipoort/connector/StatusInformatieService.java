@@ -23,7 +23,7 @@ public class StatusInformatieService
 		{
 			GetNieuweStatussenProcesRequest request = new GetNieuweStatussenProcesRequest();
 			request.setKenmerk(kenmerk);
-			request.setAutorisatieAdres("http://localhost:8080/biv-mock-ws/CSPService-OK");
+			request.setAutorisatieAdres("http://geenausp.nl/");
 			GetNieuweStatussenProcesResponse nieuweStatussenProcesResponse = connectieStatusInformatieService().getNieuweStatussenProces(request);
 			return nieuweStatussenProcesResponse.getGetNieuweStatussenProcesReturn().getStatusResultaat();
 		}
@@ -46,7 +46,7 @@ public class StatusInformatieService
 		{
 			GetStatussenProcesRequest request = new GetStatussenProcesRequest();
 			request.setKenmerk(kenmerk);
-			request.setAutorisatieAdres("http://localhost:8080/biv-mock-ws/CSPService-OK");
+			request.setAutorisatieAdres("http://geenausp.nl/");
 			GetStatussenProcesResponse statussenProces = connectieStatusInformatieService().getStatussenProces(request);
 			return statussenProces.getGetStatussenProcesReturn().getStatusResultaat();
 		}
