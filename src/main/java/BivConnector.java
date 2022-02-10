@@ -1,34 +1,36 @@
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.List;
 
-import nl.logius.digipoort.connector.AanleverService;
-import nl.logius.digipoort.connector.StatusInformatieService;
+import nl.logius.digipoort.connector.FilingService;
+import nl.logius.digipoort.connector.StatusInformationService;
 import nl.logius.digipoort.koppelvlakservices._1.AanleverResponse;
 import nl.logius.digipoort.koppelvlakservices._1.StatusResultaat;
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /*
 This a BIV connector sample.
  */
 public class BivConnector
 {
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		System.setProperty("javax.net.ssl.trustStore", "wsse.jks");
 		System.setProperty("javax.net.ssl.trustStorePassword", "test");
 		System.setProperty("javax.net.ssl.keyStore", "wsse.jks");
 		System.setProperty("javax.net.ssl.keyStorePassword", "test");
 
-		// Example for processing a synchronous and asynchronous delivery
+		// Examples for processing asynchronous deliveries
 		BivConnector bivConnector = new BivConnector();
-		bivConnector.xbrlFileProcessor("frc-rpt-vt-duurzaamheidsscore.xbrl","Test_SWL", null);
-		bivConnector.xbrlFileProcessor("VB-01_bd-rpt-ihz-aangifte-2019-masked.xbrl", "Inkomstenbelasting", "00000000123456780000");
+		// annual report with declaration and signature
+		bivConnector.xbrlFileProcessor("jaarrekening_av","frc-rpt-nt-inrichtingsjaarrekening-2021.xbrl","Jaarrekening_AV", "30267975", "00000000123456780000","nba-controleverklaring-goedkeurend-NL.xbrl", "signature.xml");
+		// real estate valuation with two signatures
+		bivConnector.xbrlFileProcessor("taxatie_dh","frc-rpt-vt-taxatierapport.xbrl","Taxatie_DH", "12345678", "00000000123456780000","signature-about-document.xml", "signature-about-signature.xml");
 	}
 
-	public void xbrlFileProcessor(String fileName, String berichtsoort, String IdOntvanger)
+	public void xbrlFileProcessor(String directory, String fileName, String messageType, String kvkSubject, String IdReceiver, String... attachmentFileNames)
 	{
-		// The response contains a status, depending on the configuration in BIV it will be processed (a)synchronously.
-		AanleverService aanleverService = new AanleverService();
-		AanleverResponse aanleverResponse = aanleverService.aanleveren(fileName,berichtsoort, IdOntvanger);
+		FilingService aanleverService = new FilingService();
+		AanleverResponse aanleverResponse = aanleverService.filing(directory, fileName, messageType, kvkSubject, IdReceiver, attachmentFileNames);
 
 		checkNotNull(aanleverResponse, "Processing xbrl file failed for fileName: " + fileName);
 
@@ -36,29 +38,38 @@ public class BivConnector
 		// This because if the file was processed asynchronously the status given back by the AanleverResponse is most likely not the latest state.
 		// Below you see two examples how to retrieve the statuses.
 
-		// Only retrieve all new statuses, especially useful for asynchronous calls to retrieve the latest statuses.
-		StatusInformatieService statusInformatieService = new StatusInformatieService();
-		List<StatusResultaat> nieuweStatussenProces = statusInformatieService.getNieuweStatussenProces(aanleverResponse.getKenmerk());
-		System.out.println("Alle nieuwe statussen voor kenmerk: " + aanleverResponse.getKenmerk());
-		printStatusResultaten(nieuweStatussenProces);
+		// Retrieve all current statuses.
+		StatusInformationService statusInformatieService = new StatusInformationService();
+		List<StatusResultaat> statusesProcess = statusInformatieService.getStatusesProcess(aanleverResponse.getKenmerk());
+		System.out.println("All statuses for kenmerk: " + aanleverResponse.getKenmerk());
+		printStatusResults(statusesProcess);
 
-		// In addition you can retrieve all statuses.
-		List<StatusResultaat> statussenProces = statusInformatieService.getStatussenProces(aanleverResponse.getKenmerk());
-		System.out.println("Alle statussen voor kenmerk: " + aanleverResponse.getKenmerk());
-		printStatusResultaten(statussenProces);
+		// Only retrieve all new statuses, especially useful for asynchronous calls to retrieve the latest statuses.
+		try
+		{
+			// wait 10 seconds so possibly some new statuses
+			Thread.sleep(10000);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		List<StatusResultaat> newStatusesProcess = statusInformatieService.getNewStatusesProcess(aanleverResponse.getKenmerk());
+		System.out.println("All new statuses for kenmerk: " + aanleverResponse.getKenmerk());
+		printStatusResults(newStatusesProcess);
 	}
 
-	private void printStatusResultaten(List<StatusResultaat> statusResultaten)
+	private void printStatusResults(List<StatusResultaat> statusResults)
 	{
-		statusResultaten.forEach(statusResultaat -> {
+		statusResults.forEach(statusResultaat -> {
 			System.out.println("Status details: " + statusResultaat.getStatusdetails());
-			System.out.println("TijdstempelStatus: " + statusResultaat.getTijdstempelStatus());
+			System.out.println("Timestamp status: " + statusResultaat.getTijdstempelStatus());
 			System.out.println("Statuscode: " + statusResultaat.getStatuscode());
-			System.out.println("Status omschrijving: " + statusResultaat.getStatusomschrijving());
+			System.out.println("Status description: " + statusResultaat.getStatusomschrijving());
 			if (statusResultaat.getStatusFoutcode() != null)
 			{
-				System.out.println("Foutcode: " + statusResultaat.getStatusFoutcode().getFoutcode());
-				System.out.println("FoutBeschrijving: " + statusResultaat.getStatusFoutcode().getFoutbeschrijving());
+				System.out.println("Fault code: " + statusResultaat.getStatusFoutcode().getFoutcode());
+				System.out.println("Fault description: " + statusResultaat.getStatusFoutcode().getFoutbeschrijving());
 			}
 			System.out.println("\n");
 		});

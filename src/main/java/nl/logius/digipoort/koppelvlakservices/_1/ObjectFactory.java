@@ -24,11 +24,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _StatusinformatieFault_QNAME = new QName("http://logius.nl/digipoort/koppelvlakservices/1.2/", "statusinformatieFault");
-    private final static QName _AfleverFault_QNAME = new QName("http://logius.nl/digipoort/koppelvlakservices/1.2/", "afleverFault");
-    private final static QName _OphaalFault_QNAME = new QName("http://logius.nl/digipoort/koppelvlakservices/1.2/", "ophaalFault");
     private final static QName _AanleverFault_QNAME = new QName("http://logius.nl/digipoort/koppelvlakservices/1.2/", "aanleverFault");
+    private final static QName _AfleverFault_QNAME = new QName("http://logius.nl/digipoort/koppelvlakservices/1.2/", "afleverFault");
     private final static QName _ZetStatusFault_QNAME = new QName("http://logius.nl/digipoort/koppelvlakservices/1.2/", "zetStatusFault");
+    private final static QName _StatusinformatieFault_QNAME = new QName("http://logius.nl/digipoort/koppelvlakservices/1.2/", "statusinformatieFault");
+    private final static QName _OphaalFault_QNAME = new QName("http://logius.nl/digipoort/koppelvlakservices/1.2/", "ophaalFault");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: nl.logius.digipoort.koppelvlakservices._1
@@ -38,11 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetProcessenRequest }
+     * Create an instance of {@link AanleverRequest }
      * 
      */
-    public GetProcessenRequest createGetProcessenRequest() {
-        return new GetProcessenRequest();
+    public AanleverRequest createAanleverRequest() {
+        return new AanleverRequest();
     }
 
     /**
@@ -51,134 +51,6 @@ public class ObjectFactory {
      */
     public IdentiteitType createIdentiteitType() {
         return new IdentiteitType();
-    }
-
-    /**
-     * Create an instance of {@link FoutType }
-     * 
-     */
-    public FoutType createFoutType() {
-        return new FoutType();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweBerichtenRequest }
-     * 
-     */
-    public GetNieuweBerichtenRequest createGetNieuweBerichtenRequest() {
-        return new GetNieuweBerichtenRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetBerichtsoortenResponse }
-     * 
-     */
-    public GetBerichtsoortenResponse createGetBerichtsoortenResponse() {
-        return new GetBerichtsoortenResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfBerichtsoortResultaat }
-     * 
-     */
-    public ArrayOfBerichtsoortResultaat createArrayOfBerichtsoortResultaat() {
-        return new ArrayOfBerichtsoortResultaat();
-    }
-
-    /**
-     * Create an instance of {@link GetBerichtenKenmerkResponse }
-     * 
-     */
-    public GetBerichtenKenmerkResponse createGetBerichtenKenmerkResponse() {
-        return new GetBerichtenKenmerkResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfBerichtResultaat }
-     * 
-     */
-    public ArrayOfBerichtResultaat createArrayOfBerichtResultaat() {
-        return new ArrayOfBerichtResultaat();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweBerichtenKenmerkRequest }
-     * 
-     */
-    public GetNieuweBerichtenKenmerkRequest createGetNieuweBerichtenKenmerkRequest() {
-        return new GetNieuweBerichtenKenmerkRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetProcessenResponse }
-     * 
-     */
-    public GetProcessenResponse createGetProcessenResponse() {
-        return new GetProcessenResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfProcesResultaat }
-     * 
-     */
-    public ArrayOfProcesResultaat createArrayOfProcesResultaat() {
-        return new ArrayOfProcesResultaat();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweStatussenProcesRequest }
-     * 
-     */
-    public GetNieuweStatussenProcesRequest createGetNieuweStatussenProcesRequest() {
-        return new GetNieuweStatussenProcesRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetBerichtenResponse }
-     * 
-     */
-    public GetBerichtenResponse createGetBerichtenResponse() {
-        return new GetBerichtenResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweBerichtenLijstResponse }
-     * 
-     */
-    public GetNieuweBerichtenLijstResponse createGetNieuweBerichtenLijstResponse() {
-        return new GetNieuweBerichtenLijstResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfBerichtLijstResultaat }
-     * 
-     */
-    public ArrayOfBerichtLijstResultaat createArrayOfBerichtLijstResultaat() {
-        return new ArrayOfBerichtLijstResultaat();
-    }
-
-    /**
-     * Create an instance of {@link ZetStatusResponse }
-     * 
-     */
-    public ZetStatusResponse createZetStatusResponse() {
-        return new ZetStatusResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetBerichtenKenmerkRequest }
-     * 
-     */
-    public GetBerichtenKenmerkRequest createGetBerichtenKenmerkRequest() {
-        return new GetBerichtenKenmerkRequest();
-    }
-
-    /**
-     * Create an instance of {@link AfleverRequest }
-     * 
-     */
-    public AfleverRequest createAfleverRequest() {
-        return new AfleverRequest();
     }
 
     /**
@@ -198,6 +70,246 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AanleverResponse }
+     * 
+     */
+    public AanleverResponse createAanleverResponse() {
+        return new AanleverResponse();
+    }
+
+    /**
+     * Create an instance of {@link FoutType }
+     * 
+     */
+    public FoutType createFoutType() {
+        return new FoutType();
+    }
+
+    /**
+     * Create an instance of {@link GetBerichtsoortenRequest }
+     * 
+     */
+    public GetBerichtsoortenRequest createGetBerichtsoortenRequest() {
+        return new GetBerichtsoortenRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetBerichtsoortenResponse }
+     * 
+     */
+    public GetBerichtsoortenResponse createGetBerichtsoortenResponse() {
+        return new GetBerichtsoortenResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfBerichtsoortResultaat }
+     * 
+     */
+    public ArrayOfBerichtsoortResultaat createArrayOfBerichtsoortResultaat() {
+        return new ArrayOfBerichtsoortResultaat();
+    }
+
+    /**
+     * Create an instance of {@link GetProcessenRequest }
+     * 
+     */
+    public GetProcessenRequest createGetProcessenRequest() {
+        return new GetProcessenRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetProcessenResponse }
+     * 
+     */
+    public GetProcessenResponse createGetProcessenResponse() {
+        return new GetProcessenResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfProcesResultaat }
+     * 
+     */
+    public ArrayOfProcesResultaat createArrayOfProcesResultaat() {
+        return new ArrayOfProcesResultaat();
+    }
+
+    /**
+     * Create an instance of {@link GetStatussenProcesRequest }
+     * 
+     */
+    public GetStatussenProcesRequest createGetStatussenProcesRequest() {
+        return new GetStatussenProcesRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetStatussenProcesResponse }
+     * 
+     */
+    public GetStatussenProcesResponse createGetStatussenProcesResponse() {
+        return new GetStatussenProcesResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfStatusResultaat }
+     * 
+     */
+    public ArrayOfStatusResultaat createArrayOfStatusResultaat() {
+        return new ArrayOfStatusResultaat();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweStatussenProcesRequest }
+     * 
+     */
+    public GetNieuweStatussenProcesRequest createGetNieuweStatussenProcesRequest() {
+        return new GetNieuweStatussenProcesRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweStatussenProcesResponse }
+     * 
+     */
+    public GetNieuweStatussenProcesResponse createGetNieuweStatussenProcesResponse() {
+        return new GetNieuweStatussenProcesResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweStatussenRequest }
+     * 
+     */
+    public GetNieuweStatussenRequest createGetNieuweStatussenRequest() {
+        return new GetNieuweStatussenRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweStatussenResponse }
+     * 
+     */
+    public GetNieuweStatussenResponse createGetNieuweStatussenResponse() {
+        return new GetNieuweStatussenResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetBerichtenRequest }
+     * 
+     */
+    public GetBerichtenRequest createGetBerichtenRequest() {
+        return new GetBerichtenRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetBerichtenResponse }
+     * 
+     */
+    public GetBerichtenResponse createGetBerichtenResponse() {
+        return new GetBerichtenResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfBerichtResultaat }
+     * 
+     */
+    public ArrayOfBerichtResultaat createArrayOfBerichtResultaat() {
+        return new ArrayOfBerichtResultaat();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweBerichtenRequest }
+     * 
+     */
+    public GetNieuweBerichtenRequest createGetNieuweBerichtenRequest() {
+        return new GetNieuweBerichtenRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweBerichtenResponse }
+     * 
+     */
+    public GetNieuweBerichtenResponse createGetNieuweBerichtenResponse() {
+        return new GetNieuweBerichtenResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetBerichtenLijstRequest }
+     * 
+     */
+    public GetBerichtenLijstRequest createGetBerichtenLijstRequest() {
+        return new GetBerichtenLijstRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetBerichtenLijstResponse }
+     * 
+     */
+    public GetBerichtenLijstResponse createGetBerichtenLijstResponse() {
+        return new GetBerichtenLijstResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfBerichtLijstResultaat }
+     * 
+     */
+    public ArrayOfBerichtLijstResultaat createArrayOfBerichtLijstResultaat() {
+        return new ArrayOfBerichtLijstResultaat();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweBerichtenLijstRequest }
+     * 
+     */
+    public GetNieuweBerichtenLijstRequest createGetNieuweBerichtenLijstRequest() {
+        return new GetNieuweBerichtenLijstRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweBerichtenLijstResponse }
+     * 
+     */
+    public GetNieuweBerichtenLijstResponse createGetNieuweBerichtenLijstResponse() {
+        return new GetNieuweBerichtenLijstResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetBerichtenKenmerkRequest }
+     * 
+     */
+    public GetBerichtenKenmerkRequest createGetBerichtenKenmerkRequest() {
+        return new GetBerichtenKenmerkRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetBerichtenKenmerkResponse }
+     * 
+     */
+    public GetBerichtenKenmerkResponse createGetBerichtenKenmerkResponse() {
+        return new GetBerichtenKenmerkResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweBerichtenKenmerkRequest }
+     * 
+     */
+    public GetNieuweBerichtenKenmerkRequest createGetNieuweBerichtenKenmerkRequest() {
+        return new GetNieuweBerichtenKenmerkRequest();
+    }
+
+    /**
+     * Create an instance of {@link GetNieuweBerichtenKenmerkResponse }
+     * 
+     */
+    public GetNieuweBerichtenKenmerkResponse createGetNieuweBerichtenKenmerkResponse() {
+        return new GetNieuweBerichtenKenmerkResponse();
+    }
+
+    /**
+     * Create an instance of {@link AfleverRequest }
+     * 
+     */
+    public AfleverRequest createAfleverRequest() {
+        return new AfleverRequest();
+    }
+
+    /**
      * Create an instance of {@link ConstateringenLijstType }
      * 
      */
@@ -214,43 +326,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetNieuweStatussenProcesResponse }
+     * Create an instance of {@link AfleverResponse }
      * 
      */
-    public GetNieuweStatussenProcesResponse createGetNieuweStatussenProcesResponse() {
-        return new GetNieuweStatussenProcesResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfStatusResultaat }
-     * 
-     */
-    public ArrayOfStatusResultaat createArrayOfStatusResultaat() {
-        return new ArrayOfStatusResultaat();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweBerichtenLijstRequest }
-     * 
-     */
-    public GetNieuweBerichtenLijstRequest createGetNieuweBerichtenLijstRequest() {
-        return new GetNieuweBerichtenLijstRequest();
-    }
-
-    /**
-     * Create an instance of {@link AanleverResponse }
-     * 
-     */
-    public AanleverResponse createAanleverResponse() {
-        return new AanleverResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetStatussenProcesResponse }
-     * 
-     */
-    public GetStatussenProcesResponse createGetStatussenProcesResponse() {
-        return new GetStatussenProcesResponse();
+    public AfleverResponse createAfleverResponse() {
+        return new AfleverResponse();
     }
 
     /**
@@ -262,107 +342,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetBerichtenRequest }
+     * Create an instance of {@link ZetStatusResponse }
      * 
      */
-    public GetBerichtenRequest createGetBerichtenRequest() {
-        return new GetBerichtenRequest();
-    }
-
-    /**
-     * Create an instance of {@link AfleverResponse }
-     * 
-     */
-    public AfleverResponse createAfleverResponse() {
-        return new AfleverResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweBerichtenKenmerkResponse }
-     * 
-     */
-    public GetNieuweBerichtenKenmerkResponse createGetNieuweBerichtenKenmerkResponse() {
-        return new GetNieuweBerichtenKenmerkResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetBerichtenLijstResponse }
-     * 
-     */
-    public GetBerichtenLijstResponse createGetBerichtenLijstResponse() {
-        return new GetBerichtenLijstResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetStatussenProcesRequest }
-     * 
-     */
-    public GetStatussenProcesRequest createGetStatussenProcesRequest() {
-        return new GetStatussenProcesRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweStatussenRequest }
-     * 
-     */
-    public GetNieuweStatussenRequest createGetNieuweStatussenRequest() {
-        return new GetNieuweStatussenRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetBerichtsoortenRequest }
-     * 
-     */
-    public GetBerichtsoortenRequest createGetBerichtsoortenRequest() {
-        return new GetBerichtsoortenRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweBerichtenResponse }
-     * 
-     */
-    public GetNieuweBerichtenResponse createGetNieuweBerichtenResponse() {
-        return new GetNieuweBerichtenResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetNieuweStatussenResponse }
-     * 
-     */
-    public GetNieuweStatussenResponse createGetNieuweStatussenResponse() {
-        return new GetNieuweStatussenResponse();
-    }
-
-    /**
-     * Create an instance of {@link AanleverRequest }
-     * 
-     */
-    public AanleverRequest createAanleverRequest() {
-        return new AanleverRequest();
-    }
-
-    /**
-     * Create an instance of {@link GetBerichtenLijstRequest }
-     * 
-     */
-    public GetBerichtenLijstRequest createGetBerichtenLijstRequest() {
-        return new GetBerichtenLijstRequest();
-    }
-
-    /**
-     * Create an instance of {@link ConstateringType }
-     * 
-     */
-    public ConstateringType createConstateringType() {
-        return new ConstateringType();
-    }
-
-    /**
-     * Create an instance of {@link BerichtResultaat }
-     * 
-     */
-    public BerichtResultaat createBerichtResultaat() {
-        return new BerichtResultaat();
+    public ZetStatusResponse createZetStatusResponse() {
+        return new ZetStatusResponse();
     }
 
     /**
@@ -382,11 +366,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BerichtResultaat }
+     * 
+     */
+    public BerichtResultaat createBerichtResultaat() {
+        return new BerichtResultaat();
+    }
+
+    /**
      * Create an instance of {@link BerichtLijstResultaat }
      * 
      */
     public BerichtLijstResultaat createBerichtLijstResultaat() {
         return new BerichtLijstResultaat();
+    }
+
+    /**
+     * Create an instance of {@link ConstateringType }
+     * 
+     */
+    public ConstateringType createConstateringType() {
+        return new ConstateringType();
     }
 
     /**
@@ -398,35 +398,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
      * 
-     */
-    @XmlElementDecl(namespace = "http://logius.nl/digipoort/koppelvlakservices/1.2/", name = "statusinformatieFault")
-    public JAXBElement<FoutType> createStatusinformatieFault(FoutType value) {
-        return new JAXBElement<FoutType>(_StatusinformatieFault_QNAME, FoutType.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://logius.nl/digipoort/koppelvlakservices/1.2/", name = "afleverFault")
-    public JAXBElement<FoutType> createAfleverFault(FoutType value) {
-        return new JAXBElement<FoutType>(_AfleverFault_QNAME, FoutType.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://logius.nl/digipoort/koppelvlakservices/1.2/", name = "ophaalFault")
-    public JAXBElement<FoutType> createOphaalFault(FoutType value) {
-        return new JAXBElement<FoutType>(_OphaalFault_QNAME, FoutType.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}}
-     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
      */
     @XmlElementDecl(namespace = "http://logius.nl/digipoort/koppelvlakservices/1.2/", name = "aanleverFault")
     public JAXBElement<FoutType> createAanleverFault(FoutType value) {
@@ -434,12 +411,55 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://logius.nl/digipoort/koppelvlakservices/1.2/", name = "afleverFault")
+    public JAXBElement<FoutType> createAfleverFault(FoutType value) {
+        return new JAXBElement<FoutType>(_AfleverFault_QNAME, FoutType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
      */
     @XmlElementDecl(namespace = "http://logius.nl/digipoort/koppelvlakservices/1.2/", name = "zetStatusFault")
     public JAXBElement<FoutType> createZetStatusFault(FoutType value) {
         return new JAXBElement<FoutType>(_ZetStatusFault_QNAME, FoutType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://logius.nl/digipoort/koppelvlakservices/1.2/", name = "statusinformatieFault")
+    public JAXBElement<FoutType> createStatusinformatieFault(FoutType value) {
+        return new JAXBElement<FoutType>(_StatusinformatieFault_QNAME, FoutType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FoutType }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://logius.nl/digipoort/koppelvlakservices/1.2/", name = "ophaalFault")
+    public JAXBElement<FoutType> createOphaalFault(FoutType value) {
+        return new JAXBElement<FoutType>(_OphaalFault_QNAME, FoutType.class, null, value);
     }
 
 }

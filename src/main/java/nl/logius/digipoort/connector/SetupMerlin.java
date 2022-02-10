@@ -1,12 +1,15 @@
 package nl.logius.digipoort.connector;
 
+import java.io.InputStream;
+import java.security.KeyStore;
 import java.util.Map;
 import java.util.Properties;
 
 import javax.xml.ws.BindingProvider;
 
 import org.apache.cxf.ws.security.SecurityConstants;
-import org.apache.ws.security.components.crypto.Merlin;
+import org.apache.wss4j.common.crypto.Merlin;
+import org.apache.wss4j.common.util.Loader;
 
 public class SetupMerlin
 {
@@ -26,15 +29,20 @@ public class SetupMerlin
 		// Setup alias
 		Properties merlinProperties = new Properties();
 		merlinProperties.put("org.apache.ws.security.crypto.merlin.keystore.alias", ALIAS);
-		merlinProperties.put("org.apache.ws.security.crypto.merlin.keystore.file", WSSE_JKS);
-		merlinProperties.put("org.apache.ws.security.crypto.merlin.keystore.password", PASSWD);
-		merlinProperties.put("org.apache.ws.security.crypto.merlin.truststore.file", WSSE_JKS);
-		merlinProperties.put("org.apache.ws.security.crypto.merlin.truststore.password", PASSWD);
+
+		// Load the keystore direct
+		Merlin merlinCrypto = new Merlin(merlinProperties, SetupMerlin.class.getClassLoader(), null);
+
+		KeyStore keyStore = KeyStore.getInstance("jks");
+		InputStream input = Merlin.loadInputStream(Loader.getClassLoader(SetupMerlin.class), WSSE_JKS);
+		keyStore.load(input, PASSWD.toCharArray()); // password
+		merlinCrypto.setKeyStore(keyStore);
+		merlinCrypto.setTrustStore(keyStore);
 
 		// initialize request context with ws-sec config
 		Map<String, Object> requestContext = bp.getRequestContext();
 		requestContext.put(SecurityConstants.CALLBACK_HANDLER, passwordCallback);
-		requestContext.put(SecurityConstants.SIGNATURE_CRYPTO, new Merlin(merlinProperties));
+		requestContext.put(SecurityConstants.SIGNATURE_CRYPTO, merlinCrypto);
 		requestContext.put(SecurityConstants.SIGNATURE_USERNAME, ALIAS);
 	}
 }

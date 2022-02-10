@@ -4,6 +4,7 @@ package nl.logius.digipoort.koppelvlakservices._1;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.NormalizedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -20,16 +21,16 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="elementType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="naam" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}elementnaamType"/>
- *         &lt;element name="waarde" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}elementwaardeType"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="elementType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="naam" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}elementnaamType"/&gt;
+ *         &lt;element name="waarde" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}elementwaardeType"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -43,9 +44,11 @@ public class ElementType {
 
     @XmlElement(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String naam;
     @XmlElement(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String waarde;
 
     /**

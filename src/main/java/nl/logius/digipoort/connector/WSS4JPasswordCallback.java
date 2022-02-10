@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
 
-import org.apache.ws.security.WSPasswordCallback;
+import org.apache.wss4j.common.ext.WSPasswordCallback;
 
 public class WSS4JPasswordCallback implements CallbackHandler
 {

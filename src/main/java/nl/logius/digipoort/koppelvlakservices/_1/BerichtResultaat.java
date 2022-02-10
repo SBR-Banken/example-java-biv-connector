@@ -17,29 +17,29 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="BerichtResultaat">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="kenmerk" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}kenmerkType"/>
- *         &lt;element name="berichtsoort" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}berichtsoortType"/>
- *         &lt;element name="berichtkenmerk" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}berichtkenmerkType"/>
- *         &lt;element name="aanleverkenmerk" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}aanleverkenmerkType" minOccurs="0"/>
- *         &lt;element name="eerderAanleverkenmerk" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}aanleverkenmerkType" minOccurs="0"/>
- *         &lt;element name="tijdstempelAangeleverd" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *         &lt;element name="identiteitBelanghebbende" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}identiteitType"/>
- *         &lt;element name="rolBelanghebbende" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}rolType"/>
- *         &lt;element name="identiteitAanleveraar" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}identiteitsnummerType" minOccurs="0"/>
- *         &lt;element name="identiteitOntvanger" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}identiteitType" minOccurs="0"/>
- *         &lt;element name="rolOntvanger" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}rolType" minOccurs="0"/>
- *         &lt;element name="berichtInhoud" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}berichtInhoudType"/>
- *         &lt;element name="berichtBijlagen" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}berichtBijlagenType" minOccurs="0"/>
- *         &lt;element name="constateringenLijst" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}constateringenLijstType" minOccurs="0"/>
- *         &lt;element name="additioneleElementenLijst" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}additioneleElementenLijstType" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="BerichtResultaat"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="kenmerk" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}kenmerkType"/&gt;
+ *         &lt;element name="berichtsoort" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}berichtsoortType"/&gt;
+ *         &lt;element name="berichtkenmerk" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}berichtkenmerkType"/&gt;
+ *         &lt;element name="aanleverkenmerk" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}aanleverkenmerkType" minOccurs="0"/&gt;
+ *         &lt;element name="eerderAanleverkenmerk" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}aanleverkenmerkType" minOccurs="0"/&gt;
+ *         &lt;element name="tijdstempelAangeleverd" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+ *         &lt;element name="identiteitBelanghebbende" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}identiteitType"/&gt;
+ *         &lt;element name="rolBelanghebbende" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}rolType"/&gt;
+ *         &lt;element name="identiteitAanleveraar" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}identiteitsnummerType" minOccurs="0"/&gt;
+ *         &lt;element name="identiteitOntvanger" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}identiteitType" minOccurs="0"/&gt;
+ *         &lt;element name="rolOntvanger" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}rolType" minOccurs="0"/&gt;
+ *         &lt;element name="berichtInhoud" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}berichtInhoudType"/&gt;
+ *         &lt;element name="berichtBijlagen" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}berichtBijlagenType" minOccurs="0"/&gt;
+ *         &lt;element name="constateringenLijst" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}constateringenLijstType" minOccurs="0"/&gt;
+ *         &lt;element name="additioneleElementenLijst" type="{http://logius.nl/digipoort/koppelvlakservices/1.2/}additioneleElementenLijstType" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -66,16 +66,21 @@ public class BerichtResultaat {
 
     @XmlElement(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String kenmerk;
     @XmlElement(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String berichtsoort;
     @XmlElement(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String berichtkenmerk;
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String aanleverkenmerk;
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String eerderAanleverkenmerk;
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
@@ -84,11 +89,14 @@ public class BerichtResultaat {
     protected IdentiteitType identiteitBelanghebbende;
     @XmlElement(required = true)
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String rolBelanghebbende;
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String identiteitAanleveraar;
     protected IdentiteitType identiteitOntvanger;
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    @XmlSchemaType(name = "normalizedString")
     protected String rolOntvanger;
     @XmlElement(required = true)
     protected BerichtInhoudType berichtInhoud;
